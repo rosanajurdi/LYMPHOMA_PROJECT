@@ -47,12 +47,10 @@ for file in os.listdir(root):
                     in_check = Is_mod_inT1List(key)
                     if in_check:
                         print(file, key)
-                        T1mod_list.append([file, key])
-                        #src = os.path.join(patient_path, file, patient_id, modality)
-
-                        #dst = os.path.join(T1ds_path, file, os.path.basename(modality))
-
-                        #shutil.copytree(src, dst, copy_function=copy2)
+                        #T1mod_list.append([file, key])
+                        src = os.path.join(patient_path, file, patient_id, modality)
+                        dst = os.path.join(T1ds_path, file, os.path.basename(modality))
+                        shutil.copytree(src, dst, copy_function=copy2)
 
 T1mod = pd.DataFrame(T1mod_list)
 T1mod.to_csv(os.path.join(T1ds_path, 'T1_modality_new.csv'))
