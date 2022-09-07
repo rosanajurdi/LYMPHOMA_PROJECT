@@ -14,7 +14,9 @@ f = open(os.path.join(root,"Content.txt"), "a")
 for file in os.listdir(root):
     patient_path = Path(root, file)
     if os.path.isdir(patient_path):
-        print(file,*[name for name in os.listdir(patient_path) if os.path.isdir(os.path.join(patient_path, name))],
-              len([name for name in os.listdir(patient_path) if os.path.isdir(os.path.join(patient_path, name))]))
+        modality_list = [name for name in os.listdir(patient_path) if os.path.isdir(os.path.join(patient_path, name))]
+        nb = len([name for name in os.listdir(patient_path) if os.path.isdir(os.path.join(patient_path, name))])
+        for mod in modality_list:
+            print(file,",",mod,",",nb)
 
 
